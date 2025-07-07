@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Анализ продаж магазина</title>
+</head>
+<body>
+    <h1>Анализ продаж магазина</h1>
+
+    <script src="data/dataset_1.js"></script>
+    <script src="src/main.js"></script>
+    <script>
+        console.log(data);
+
+        const specialBonuses = calculateSpecialBonuses(
+            data,
+            {
+                calculateProfit: simpleProfit,
+                accumulateMetrics: baseMetrics,
+            },
+            [
+                bonusBestCustomer,
+                bonusCustomerRetention,
+                bonusLargestSingleSale,
+                bonusHighestAverageProfit,
+                bonusStableGrowth
+            ]
+        );
+
+        //console.log(JSON.stringify(specialBonuses, null, 4));
+
+        if (console.table) console.table(specialBonuses);
+        else console.log(specialBonuses);
+    </script>
+</body>
+</html>
